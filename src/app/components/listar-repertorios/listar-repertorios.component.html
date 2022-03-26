@@ -1,0 +1,24 @@
+<div class="row mt-5">
+  <h4>Listagem de Repertórios</h4>
+  <div *ngFor="let repertorio of repertorios; let i = index" class="col-3  mb-5">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ repertorio.nome }}</h5>
+        <p class="card-text">{{ repertorio.enredo }}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Data de estreia: {{ repertorio.dataestreia }}</li>
+        <li class="list-group-item">Coreografo: {{ repertorio.coreografo }}</li>
+        <li class="list-group-item">Composição musical: {{ repertorio.composicaomusical }}</li>
+        <li class="list-group-item">Libreto: {{ repertorio.libreto }}</li>
+        <li class="list-group-item">Personagem principal: {{ repertorio.personagemPrincipal }}</li>
+        <li class="list-group-item">Atos: {{ repertorio.atos }}</li>
+        <li class="list-group-item">Tipo de enredo: {{ repertorio.tipoenredo }}</li>
+      </ul>
+      <div class="card-body">
+        <a class="btn btn-warning margin-left-3" [routerLink]="['/editar-repertorios', i]">EDITAR</a>
+        <button class="btn btn-danger" (click)="delete(i)">EXLUIR</button>
+      </div>
+    </div>
+  </div>
+</div>

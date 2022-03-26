@@ -5,11 +5,20 @@
 
 <body>
   <div class="list-group">
-    <a routerLink="/crud-repertorio" class="list-group-item list-group-item-action" routerLinkActive="active">
-      <p style="text-align:center" class="mt-2">
-        Repertórios de Ballet
-      </p>
-    </a>
+    <div class="col">
+      <a routerLink="/crud-repertorio" class="list-group-item list-group-item-action" routerLinkActive="active">
+        <p style="text-align:center" class="mt-2">
+          Criar Repertórios
+        </p>
+      </a>
+    </div>
+    <div class="col">
+      <a routerLink="/listar-repertorios" class="list-group-item list-group-item-action" routerLinkActive="active">
+        <p style="text-align:center" class="mt-2">
+          Listar Repertórios
+        </p>
+      </a>
+    </div>
   </div>
   <div class="container mt-5">
     <router-outlet></router-outlet>

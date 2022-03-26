@@ -4,12 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CrudRepertorioComponent } from './crud-repertorio/crud-repertorio.component';
+import { CriarRepertorioComponent } from './components/criar-repertorios/criar-repertorio.component';
+import { ListarRepertoriosComponent } from './components/listar-repertorios/listar-repertorios.component';
+import { EditarRepertoriosComponent } from './components/editar-repertorios/editar-repertorios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrudRepertorioComponent
+    CriarRepertorioComponent,
+    ListarRepertoriosComponent,
+    EditarRepertoriosComponent
   ],
   imports: [
     BrowserModule,
