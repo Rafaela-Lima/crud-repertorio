@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="form">
+        <form [formGroup]="formCadastro"  (ngSubmit)="submitForm()">
+            <input type="text" name="username" placeholder="Email" formControlName="email">
+            <div *ngIf="formCadastro.controls['email'].touched">
+                <small *ngIf="formCadastro.controls['email'].hasError('required')">Email obrigatório</small>
+                <small *ngIf="formCadastro.controls['email'].hasError('email')">Email inválido</small>
+            </div>
+            <input type="password" name="password" placeholder="Senha" formControlName="password">
+            <div *ngIf="formCadastro.controls['password'].touched">
+                <small *ngIf="formCadastro.controls['password'].hasError('required')">A senha é obrigatoria.</small>
+                <small *ngIf="formCadastro.controls['password'].hasError('minlength')">A senha precisa ter no minimo 6
+                    caracteres.</small>
+            </div>
+            <input type="password" name="confirmPassword" placeholder="Confirmar senha" formControlName="confirmPassword">
+            <div *ngIf="formCadastro.controls['confirmPassword'].touched">
+                <small *ngIf="formCadastro.controls['confirmPassword'].hasError('required')">A senha é obrigatoria.</small>
+                <small *ngIf="formCadastro.controls['confirmPassword'].hasError('minlength')">A senha precisa ter no minimo 6
+                    caracteres.</small>
+            </div>
+            <button type="submit" class="btn">ENTRAR</button>
+        </form>
+    </div>
+</div>

@@ -1,60 +1,62 @@
 <h4>Cadastro de Repertório</h4>
-<div class="row">
-  <div class="col">
-    <label>Nome:</label>
-    <input type="text" class="form-control" [(ngModel)]="nome" #myInput><br>
-  </div>
-  <div class="col">
-    <label>data de estreia:</label>
-    <input type="date" class="form-control" [(ngModel)]="dataestreia"><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <label>Coreografo:</label>
-    <input type="text" class="form-control" [(ngModel)]="coreografo"><br>
-  </div>
-  <div class="col">
-    <label>Composição musical:</label>
-    <input type="text" class="form-control" [(ngModel)]="composicaomusical"><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <label>Libreto:</label>
-    <input type="text" class="form-control" [(ngModel)]="libreto"><br>
-  </div>
-  <div class="col">
-    <label>Personagem principal:</label>
-    <input type="text" class="form-control" [(ngModel)]="personagem_principal"><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <label>Atos:</label>
-    <select type="text" class="form-control" [(ngModel)]="atos">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="col">
-    <label>Tipo enredo:</label>
-    <select class="form-control" [(ngModel)]="tipoenredo">
-      <option>Fantasia</option>
-      <option>Cômico</option>
-      <option>Dramatico</option>
-    </select>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <label>Enredo:</label>
-    <textarea class="form-control" [(ngModel)]="enredo">
-    </textarea>
-  </div>
-</div>
+<form [formGroup]="formEditar" (ngSubmit)="submitForm()">
 
-<button class="btn btn-primary" (click)="save()">Salvar</button>
+  <div class="row">
+    <div class="col">
+      <label>Nome:</label>
+      <input type="text" class="form-control" formControlName="nome" #myInput><br>
+    </div>
+    <div class="col">
+      <label>data de estreia:</label>
+      <input type="date" class="form-control" formControlName="dataestreia"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Coreografo:</label>
+      <input type="text" class="form-control" formControlName="coreografo"><br>
+    </div>
+    <div class="col">
+      <label>Composição musical:</label>
+      <input type="text" class="form-control" formControlName="composicaomusical"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Libreto:</label>
+      <input type="text" class="form-control" formControlName="libreto"><br>
+    </div>
+    <div class="col">
+      <label>Personagem principal:</label>
+      <input type="text" class="form-control" formControlName="personagem_principal"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Atos:</label>
+      <select type="text" class="form-control" formControlName="atos">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="col">
+      <label>Tipo enredo:</label>
+      <select class="form-control" formControlName="tipoenredo">
+        <option>Fantasia</option>
+        <option>Cômico</option>
+        <option>Dramatico</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label>Enredo:</label>
+      <textarea class="form-control" formControlName="enredo">
+    </textarea>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Salvar</button>

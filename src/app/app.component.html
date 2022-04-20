@@ -4,7 +4,7 @@
 </head>
 
 <body>
-  <div class="list-group">
+  <div *ngIf="router.url !== '/login' && router.url !== '/cadastro'" class="list-group">
     <div class="col">
       <a routerLink="/crud-repertorio" class="list-group-item list-group-item-action" routerLinkActive="active">
         <p style="text-align:center" class="mt-2">
@@ -22,5 +22,13 @@
   </div>
   <div class="container mt-5">
     <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="router.url !== '/login' && router.url !== '/cadastro'" class="list-group" class="footer-basic">
+    <footer>
+      <div class="social"></div>
+      <ul class="list-inline">
+      </ul>
+      <p class="copyright" (click)="logout()" style="cursor: pointer">SAIR</p>
+    </footer>
   </div>
 </body>

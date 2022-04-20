@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="form">
+        <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
+            <input type="text" name="username" placeholder="Email" formControlName="email">
+            <div *ngIf="formLogin.controls['email'].touched">
+                <small *ngIf="formLogin.controls['email'].hasError('required')">Email obrigatório</small>
+                <small *ngIf="formLogin.controls['email'].hasError('email')">Email inválido</small>
+            </div>
+            <input type="password" name="password" placeholder="Senha" formControlName="password">
+            <div *ngIf="formLogin.controls['password'].touched">
+                <small *ngIf="formLogin.controls['password'].hasError('required')">A senha é obrigatoria.</small>
+                <small *ngIf="formLogin.controls['password'].hasError('minlength')">A senha precisa ter no minimo 6
+                    caracteres.</small>
+            </div>
+            <button type="submit" class="btn">ENTRAR</button>
+        </form>
+        <hr class="mt-5 mb-5">
+        <div class="google-btn" (click)="singInWithGoogleAccount()">
+            <div class="google-icon-wrapper">
+                <img class="google-icon"
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+            </div>
+            <p class="btn-text"><b>Entrar com google</b></p>
+        </div>
+    </div>
+</div>

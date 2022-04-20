@@ -1,3 +1,4 @@
+
 export class Repertorio {
   private _nome: String;
   public get nome(): String {
@@ -71,6 +72,25 @@ export class Repertorio {
     this._enredo = value;
   }
 
+  public id?: string;
+
+  public downloadURL?: string;
+
+  public values() {
+    return {
+      nome: this._nome,
+      dataestreia: this._dataestreia,
+      coreografo: this._coreografo,
+      composicaomusical: this._composicaomusical,
+      libreto: this._libreto,
+      personagem_principal: this._personagem_principal,
+      atos: this._atos,
+      tipoenredo: this._tipoenredo,
+      enredo: this._enredo,
+      downloadURL: this.downloadURL
+    }
+  }
+
   constructor(
     nome: String,
     dataestreia: String,
@@ -80,7 +100,8 @@ export class Repertorio {
     personagem_principal: String,
     atos: Number,
     tipoenredo: String,
-    enredo: String
+    enredo: String,
+    downloadURL: string
   ) {
     this._nome = nome;
     this._dataestreia = dataestreia;
@@ -91,5 +112,7 @@ export class Repertorio {
     this._atos = atos;
     this._tipoenredo = tipoenredo;
     this._enredo = enredo;
+    this.downloadURL = downloadURL;
+
   }
 }

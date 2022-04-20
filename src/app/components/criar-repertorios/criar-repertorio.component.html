@@ -1,63 +1,118 @@
-<h4>Cadastro de Repertório</h4>
-<div class="row">
-  <div class="col">
-    <label>Nome:</label>
-    <input type="text" class="form-control" [(ngModel)]="nome" #myInput><br>
-  </div>
-  <div class="col">
-    <label>data de estreia:</label>
-    <input type="date" class="form-control" [(ngModel)]="dataestreia"><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <label>Coreografo:</label>
-    <input type="text" class="form-control" [(ngModel)]="coreografo"><br>
-  </div>
-  <div class="col">
-    <label>Composição musical:</label>
-    <input type="text" class="form-control" [(ngModel)]="composicaomusical"><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <label>Libreto:</label>
-    <input type="text" class="form-control" [(ngModel)]="libreto"><br>
-  </div>
-  <div class="col">
-    <label>Personagem principal:</label>
-    <input type="text" class="form-control" [(ngModel)]="personagem_principal"><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <label>Atos:</label>
-    <select type="text" class="form-control" [(ngModel)]="atos">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="col">
-    <label>Tipo enredo:</label>
-    <select class="form-control" [(ngModel)]="tipoenredo">
-      <option>Fantasia</option>
-      <option>Cômico</option>
-      <option>Dramatico</option>
-    </select>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <label>Enredo:</label>
-    <textarea class="form-control" [(ngModel)]="enredo">
+<div class="container">
+  <h4>Cadastro de Repertório</h4>
+  <form [formGroup]="formCadastrar" (ngSubmit)="submitForm()">
+    <div class="row">
+      <div class="col">
+        <label>Nome:</label>
+        <input type="text" class="form-control" formControlName="nome" #myInput>
+        <div *ngIf="formCadastrar.controls['nome'].touched">
+          <small *ngIf="formCadastrar.controls['nome'].hasError('required')" style="color: red;">O nome é
+            obrigatório.</small>
+          <small *ngIf="formCadastrar.controls['nome'].hasError('minlength')" style="color: red;">O nome deve ter no
+            mínimo
+            cinco caracteres.</small>
+        </div>
+      </div>
+      <div class="col">
+        <label>data de estreia:</label>
+        <input type="date" class="form-control" formControlName="dataestreia">
+        <div *ngIf="formCadastrar.controls['dataestreia'].touched">
+          <small *ngIf="formCadastrar.controls['dataestreia'].hasError('required')" style="color: red;">A data de estreia é
+            obrigatório.</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>Coreografo:</label>
+        <input type="text" class="form-control" formControlName="coreografo">
+        <div *ngIf="formCadastrar.controls['coreografo'].touched">
+          <small *ngIf="formCadastrar.controls['coreografo'].hasError('required')" style="color: red;">O coreografo é
+            obrigatório.</small>
+        </div>
+      </div>
+
+      <div class="col">
+        <label>Composição musical:</label>
+        <input type="text" class="form-control" formControlName="composicaomusical">
+        <div *ngIf="formCadastrar.controls['composicaomusical'].touched">
+          <small *ngIf="formCadastrar.controls['composicaomusical'].hasError('required')" style="color: red;">A composição musical é
+            obrigatória.</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>Libreto:</label>
+        <input type="text" class="form-control" formControlName="libreto">
+        <div *ngIf="formCadastrar.controls['libreto'].touched">
+          <small *ngIf="formCadastrar.controls['libreto'].hasError('required')" style="color: red;">O libreto é
+            obrigatório.</small>
+        </div>
+      </div>
+      <div class="col">
+        <label>Personagem principal:</label>
+        <input type="text" class="form-control" formControlName="personagemPrincipal">
+        <div *ngIf="formCadastrar.controls['personagemPrincipal'].touched">
+          <small *ngIf="formCadastrar.controls['personagemPrincipal'].hasError('required')" style="color: red;">O personagem princiapal é
+            obrigatório.</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>Atos:</label>
+        <select type="text" class="form-control" formControlName="atos">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div *ngIf="formCadastrar.controls['atos'].touched">
+          <small *ngIf="formCadastrar.controls['atos'].hasError('required')" style="color: red;">O campo atos é
+            obrigatório.</small>
+        </div>
+      </div>
+      <div class="col">
+        <label>Tipo enredo:</label>
+        <select class="form-control" formControlName="tipoenredo">
+          <option>Fantasia</option>
+          <option>Cômico</option>
+          <option>Dramatico</option>
+        </select>
+        <div *ngIf="formCadastrar.controls['tipoenredo'].touched">
+          <small *ngIf="formCadastrar.controls['tipoenredo'].hasError('required')" style="color: red;">O tipo de enredo é
+            obrigatório.</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <label>Enredo:</label>
+        <textarea class="form-control" formControlName="enredo">
     </textarea>
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col"><button class="btn btn-primary" (click)="criar()">Salvar</button></div>
-  <div class="col"><a class="btn btn-success" routerLink="/listar-repertorios">Visualizar Repertórios</a></div>
+      </div>
+      <div *ngIf="formCadastrar.controls['enredo'].touched">
+        <small *ngIf="formCadastrar.controls['enredo'].hasError('required')" style="color: red;">O enredo é
+          obrigatório.</small>
+      </div>
+    </div>
+    <br>
+    <div>
+      <input type="file" required id="file" formControlName="downloadURL" class="inputfile">
+      <br>
+      <label for="file">Escolha a imagem banner</label>
+      <div *ngIf="formCadastrar.controls['downloadURL'].touched">
+        <small *ngIf="formCadastrar.controls['downloadURL'].hasError('required')" style="color: red;">O banner é
+          obrigatório.</small>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col"><button class="btn btn-primary" type="submit">Salvar</button></div>
+      <div class="col"><a class="btn btn-success" routerLink="/listar-repertorios">Visualizar Repertórios</a></div>
+    </div>
+  </form>
 </div>

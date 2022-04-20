@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrudRepertorioComponent } from './crud-repertorio.component';
+import { CadastrarUsuarioComponent } from './cadastrar-usuario.component';
 
-describe('CrudRepertorioComponent', () => {
-  let component: CrudRepertorioComponent;
-  let fixture: ComponentFixture<CrudRepertorioComponent>;
+describe('CadastrarUsuarioComponent', () => {
+  let component: CadastrarUsuarioComponent;
+  let fixture: ComponentFixture<CadastrarUsuarioComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrudRepertorioComponent ]
+      declarations: [ CadastrarUsuarioComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrudRepertorioComponent);
+    fixture = TestBed.createComponent(CadastrarUsuarioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
